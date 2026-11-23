@@ -1,173 +1,96 @@
-# Daily Engineering Practice Lab
+# Software Engineering Mastery & Cloud-Native DevOps Lab
 
-> A structured daily practice environment for thinking like a senior backend engineer.  
-> Focus on real problems, real trade-offs, and production-grade reasoning.
-
----
-
-## Purpose
-
-This repository is a personal engineering practice lab. It exists to build and maintain the habits of a strong backend engineer through deliberate, daily practice:
-
-- **System Design** — Practice designing real distributed systems end-to-end, from requirements to trade-offs.
-- **Bug Analysis** — Practice methodical debugging: from symptom → hypothesis → root cause → fix → prevention.
-- **Post-Mortem Writing** — Practice clear incident documentation: what happened, why, and how to prevent recurrence.
-- **Engineering Patterns** — Capture reusable architectural and operational patterns worth remembering.
-- **Notes** — Capture insights, learnings, and references worth revisiting.
-
-This is not a course. It is not a collection of theory. It is a workspace for doing the thinking.
+> **A structured, production-grade engineering lab for mastering Software Engineering and Cloud-Native DevOps.**  
+> Focus on depth over superficial frameworks, distributed systems, internal mechanics, and battle-tested infrastructure.
 
 ---
 
-## Repository Structure
+## 🎯 Purpose & Philosophy
+
+This repository is a personal engineering laboratory designed to systematically level up from a Backend Engineer to a **Senior/Master Software Engineer** and **Cloud-Native / DevOps Architect**.
+
+Instead of collecting tutorials or chasing trendy syntax, this workspace focuses on **high-leverage, foundational capabilities that withstand AI competition**:
+
+1. **System Design & Distributed Systems** — End-to-end distributed system design, consensus, partitioning, and failure modes.
+2. **Database & Systems Internals** — Concurrency control, MVCC, indexing mechanics, lock contention, and connection pool exhaustion.
+3. **Cloud-Native DevOps & SRE** — Infrastructure as Code, container orchestration (Kubernetes), automated GitOps pipelines, and observability (metrics/logs/traces).
+4. **Production Troubleshooting** — Rigorous debugging under pressure, hypothesis validation, and blameless post-mortem analysis.
+5. **3 Capstone Projects** — Depth-first implementation of real-world distributed architectures.
+
+---
+
+## 🗺️ 3-Year Strategic Roadmap
+
+The complete strategy, priority matrix, and deep questions are detailed in [ROADMAP.md](file:///d:/pkucpkam/repo-git/daily-engineering-lab/ROADMAP.md).
+
+```mermaid
+flowchart LR
+    Y1["Year 1: Core Foundation\n(70% SE / 30% DevOps)\nJava/JVM, Concurrency, SysDesign,\nLinux, Docker, Basic AWS"] --> Y2["Year 2: Infrastructure Expansion\n(50% SE / 50% DevOps)\nKubernetes, Terraform, Advanced CI/CD,\nObservability, SRE & Reliability"]
+    Y2 --> Y3["Year 3: Specialization\n(Staff / Principal Path)\nPlatform Engineering / SRE /\nCloud-Native Software Architect"]
+```
+
+| Giai đoạn | Trọng tâm | Tỷ lệ | Mục tiêu đầu ra |
+| :--- | :--- | :--- | :--- |
+| **Năm 1 — Foundation** | Java nâng cao, JVM internals, Concurrency, System Design, DB tuning, Linux, Docker, AWS cơ bản | 70% SE<br>30% DevOps | Tự thiết kế, code và deploy ứng dụng backend phân tán hoàn chỉnh. |
+| **Năm 2 — Infrastructure** | Kubernetes, Helm, Terraform, CI/CD nâng cao, Prometheus/Grafana, Tracing, Chaos Engineering | 50% SE<br>50% DevOps | Thiết kế hạ tầng dạng code (IaC), tự động hóa delivery và vận hành production chịu tải. |
+| **Năm 3 — Specialization** | Platform Engineering / SRE / Senior Cloud-Native Software Architect | Định vị chuyên sâu | Thiết kế giải pháp cấp độ toàn hệ thống (system-wide), dẫn dắt kiến trúc kỹ thuật lớn. |
+
+---
+
+## 📂 Repository Structure
 
 ```
 daily-engineering-lab/
-├── README.md
+├── README.md                                  ← Tổng quan & Định hướng repository
+├── ROADMAP.md                                 ← Lộ trình 3 năm chi tiết & Ma trận kỹ năng
 │
-├── system-design/
-│   ├── templates/
-│   │   └── system-design-template.md   ← Start here for every design session
-│   └── [YYYY-MM-DD]-[topic]/           ← One folder per practice session
-│       └── design.md
+├── 01-software-engineering/                   ← Trục Kỹ thuật Phần mềm Chuyên sâu
+│   ├── system-design/                         ← Phân tích & thiết kế hệ thống phân tán
+│   ├── patterns/                              ← Reusable Architectural & Operational Patterns
+│   ├── concept-decisions/                     ← Trade-off analyses (SQL vs NoSQL, Lockings, etc.)
+│   └── notes/                                 ← Deep-dives (JVM, Transaction Boundary, MVCC, etc.)
 │
-├── bug-cases/
-│   ├── templates/
-│   │   └── bug-template.md             ← Start here for every bug analysis
-│   └── [YYYY-MM-DD]-[bug-description].md
+├── 02-devops-and-cloud/                       ← Trục DevOps, Cloud & SRE
+│   ├── linux-networking/                      ← Kernel, Network sockets, TCP/IP, DNS, Performance
+│   ├── containers-k8s/                        ← Docker, Kubernetes architecture, Helm, CRDs
+│   ├── iac-terraform/                         ← Terraform modules, State management, Cloud infra
+│   ├── ci-cd-pipelines/                       ← GitHub Actions, Jenkins, GitOps (ArgoCD)
+│   └── observability-sre/                     ← Prometheus, Grafana, OpenTelemetry, SLI/SLO
 │
-├── post-mortems/
-│   ├── templates/
-│   │   └── post-mortem-template.md     ← Start here for every post-mortem
-│   └── [YYYY-MM-DD]-[incident-title].md
+├── 03-production-troubleshooting/             ← Kỹ năng Gỡ lỗi & Quản trị Sự cố Production
+│   ├── bug-cases/                             ← Methodical debugging (Symptom → Hypothesis → Root Cause)
+│   └── post-mortems/                          ← Phân tích sự cố thực tế và giải pháp phòng ngừa
 │
-├── patterns/
-│   └── [pattern-name].md               ← Architectural/operational patterns
-│
-└── notes/
-    └── [topic].md                      ← Raw insights, references, learnings
+└── 04-projects/                               ← 3 Dự án Trọng điểm Đủ chiều sâu (2 Năm)
+    ├── 01-distributed-backend-system/         ← High-throughput, Kafka, Redis, Distributed Tx
+    ├── 02-infrastructure-automation/         ← AWS Multi-AZ, Terraform IaC, Automated Rollback
+    └── 03-internal-developer-platform/        ← K8s Developer Platform, ArgoCD, Central Observability
 ```
 
 ---
 
-## How to Use This Repo Daily
+## 🚀 The 3 Signature Projects
 
-### Daily Practice Workflow
+Thay vì làm hàng chục project tutorial bề nổi, repo này tập trung xây dựng 3 hệ thống thực chiến:
 
-**Step 1 — Pick a topic** (5 min)  
-Choose one of:
-- A system design problem (e.g., "Design a rate limiter", "Design a notification system")
-- A real bug you've seen or read about
-- A production incident post-mortem (real or synthetic)
-- A pattern worth understanding deeply
+### 1. [Distributed Backend System](file:///d:/pkucpkam/repo-git/daily-engineering-lab/04-projects/01-distributed-backend-system/README.md)
+* **Stack:** Java 21+, Spring Boot 3, PostgreSQL, Redis, Apache Kafka.
+* **Mục tiêu:** Chứng minh năng lực thiết kế hệ thống chịu tải cao, xử lý đồng thời (concurrency), distributed locks, Outbox pattern và distributed transactions (Saga).
 
-**Step 2 — Think first, template second** (15–30 min)  
-Before copying a template, spend 10–15 minutes writing your raw thinking in plain text. What's hard about this? What would break? What would you do first? Write it out.
+### 2. [Infrastructure Automation](file:///d:/pkucpkam/repo-git/daily-engineering-lab/04-projects/02-infrastructure-automation/README.md)
+* **Stack:** AWS, Terraform, Docker, GitHub Actions, HashiCorp Vault.
+* **Mục tiêu:** Tự động hóa 100% việc tạo hạ tầng multi-environment (dev/staging/prod), CI/CD pipeline với zero-downtime deployment (Canary/Blue-Green) và tự động rollback khi gặp sự cố.
 
-**Step 3 — Fill the template** (30–60 min)  
-Copy the relevant template. Fill every section. Don't leave sections blank — if you don't know the answer, write "I don't know yet, because…" and reason through it.
-
-**Step 4 — Identify gaps** (10 min)  
-At the end, list 2–3 things you were uncertain about. These become tomorrow's research.
-
-**Step 5 — Commit and tag** (5 min)  
-Commit your work. Use a meaningful filename with the date:  
-`system-design/2024-01-15-design-a-url-shortener/design.md`
-
-### Suggested Weekly Cadence
-
-| Day       | Practice Focus                            |
-|-----------|-------------------------------------------|
-| Monday    | System Design — new problem               |
-| Tuesday   | Bug Analysis — real bug from work or news |
-| Wednesday | Pattern deep-dive (caching, queues, etc.) |
-| Thursday  | System Design — revisit / improve Monday  |
-| Friday    | Post-Mortem — write or analyze one        |
+### 3. [Internal Developer Platform](file:///d:/pkucpkam/repo-git/daily-engineering-lab/04-projects/03-internal-developer-platform/README.md)
+* **Stack:** Kubernetes, Helm, ArgoCD, Prometheus, Grafana, Loki/Tempo.
+* **Mục tiêu:** Xây dựng nền tảng Platform Engineering giúp developer tự phục vụ (self-service) deploy microservices, quản trị ingress/TLS, và theo dõi metrics/logs tập trung.
 
 ---
 
-## Learning Goals
+## 🛡️ Core Engineering Rules
 
-By consistently using this repo, you should develop:
-
-1. **Requirements discipline** — The habit of clarifying functional/non-functional requirements before designing anything.
-2. **Bottleneck intuition** — The ability to identify where a system will break before building it.
-3. **Trade-off articulation** — The ability to explain *why* you chose one approach over alternatives.
-4. **Debugging methodology** — A structured, hypothesis-driven approach to finding root causes.
-5. **Incident communication** — The ability to write clear, blameless, actionable post-mortems.
-6. **Pattern recognition** — A library of reusable solutions to common distributed systems problems.
-
----
-
-## Rules
-
-These rules exist because learning comes from reasoning, not from recalling or copy-pasting.
-
-1. **Reason first, template second.** Write your raw thinking before touching any template. If you can't produce raw thinking, you haven't thought enough yet.
-
-2. **No copy-paste from existing solutions.** If you've seen a similar system design before, use it as a starting point for your thinking — but your written design must be your own reasoning, not a transcription.
-
-3. **No empty sections.** Every section in a template must be filled. If you don't know the answer, write what you *do* know, and articulate what you'd need to find out and why.
-
-4. **Quantify everything.** Avoid vague statements. "High traffic" → "10,000 requests/second". "Slow query" → "p99 latency of 4.2 seconds". Precision is a habit.
-
-5. **Every trade-off must be justified.** Don't just state what you chose. State what you rejected and why. Design decisions without rejected alternatives are not real decisions.
-
-6. **Commit after every session.** Even rough work. Especially rough work. Progress compounds.
-
-7. **Review your old work.** Once a month, re-read a past entry. Would you design it differently now? Update it.
-
----
-
-## Getting Started
-
-1. Clone this repo
-2. Pick a system design problem or bug to analyze
-3. Copy the relevant template to the correct folder with today's date in the filename
-4. Follow the workflow above
-5. Commit your work
-
-### Quick Start Commands
-
-```bash
-# Start a new system design session
-cp system-design/templates/system-design-template.md \
-   system-design/$(date +%Y-%m-%d)-[your-topic]/design.md
-
-# Start a new bug case
-cp bug-cases/templates/bug-template.md \
-   bug-cases/$(date +%Y-%m-%d)-[bug-description].md
-
-# Start a new post-mortem
-cp post-mortems/templates/post-mortem-template.md \
-   post-mortems/$(date +%Y-%m-%d)-[incident-title].md
-```
-
----
-
-## Good Practice Topics to Start With
-
-### System Design
-- Design a URL shortener (Bitly)
-- Design a rate limiter
-- Design a notification system (push/email/SMS)
-- Design a distributed job scheduler
-- Design a real-time leaderboard
-- Design a distributed cache (Redis-lite)
-- Design an e-commerce checkout system
-
-### Bug Analysis
-- N+1 query problem causing API latency spike
-- Memory leak in a long-running service
-- Cascading timeout failures across microservices
-- Race condition in distributed locking
-- Cache stampede taking down the database
-
-### Post-Mortems
-- Database failover that took 40 minutes instead of 90 seconds
-- Deployment that caused 100% error rate due to missing env variable
-- Third-party payment provider outage and how your system responded
-
----
-
-*Built for engineers who want to get better every day. The reps compound.*
+1. **Reason first, code second.** Hiểu rõ bài toán và viết ra suy nghĩ logic trước khi chạm vào framework hay template.
+2. **Quantify everything.** Không dùng từ chung chung ("traffic cao", "query chậm"). Phải định lượng chính xác: `10,000 req/s`, `p99 latency < 50ms`, `500 connection pool limit`.
+3. **Every trade-off must be justified.** Không có giải pháp hoàn hảo, chỉ có sự đánh đổi phù hợp. Mọi quyết định thiết kế phải giải thích tại sao chọn phương án A và bác bỏ phương án B.
+4. **Root-cause deep dive.** Khi gặp lỗi, không dừng lại ở việc restart hay vá tạm thời; phải tìm ra tận gốc bản chất cơ chế của hệ thống.
+5. **Commit regularly.** Tiến bộ là kết quả của việc tích lũy liên tục và bền bỉ mỗi ngày.
