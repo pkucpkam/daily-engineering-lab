@@ -1,0 +1,11 @@
+[Unit]
+Description=Collect JVM Heap & FD Snapshot Safely
+
+[Service]
+Type=oneshot
+User=jboss
+Group=jboss
+ExecStart=/opt/scripts/collect-jboss-diag.sh
+MemoryMax=256M
+CPUQuota=50%
+Nice=10

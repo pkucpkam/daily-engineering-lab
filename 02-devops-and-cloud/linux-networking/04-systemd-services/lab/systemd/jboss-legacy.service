@@ -1,0 +1,25 @@
+[Unit]
+Description=JBoss AS 7.1.1 Standalone Service
+After=network-online.target postgresql.service
+Wants=network-online.target
+StartLimitIntervalSec=180
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=jboss
+Group=jboss
+WorkingDirectory=/opt/jboss
+Environment=LAUNCH_JBOSS_IN_BACKGROUND=false
+ExecStart=/opt/jboss/bin/standalone.sh -c standalone.xml
+ExecStop=/opt/jboss/bin/jboss-cli.sh --connect command=:shutdown
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=10s
+TimeoutStopSec=45
+LimitNOFILE=65536
+MemoryHigh=5G
+MemoryMax=6G
+
+[Install]
+WantedBy=multi-user.target

@@ -2,7 +2,7 @@
 
 > Tài liệu kim chỉ nam định hướng học tập và rèn luyện: Đi sâu bản chất Software Engineering & mở rộng năng lực Cloud-Native / DevOps.
 > README nói *tại sao*, ROADMAP nói *học gì, theo thứ tự nào, và khi nào được coi là "xong"*.
-> Trở về trang chủ: [README.md](./README.md)
+> Trở về trang chủ: [README.md](./README.md) · Danh mục bài học chi tiết theo từng quý: [CURRICULUM.md](./CURRICULUM.md)
 
 ---
 
@@ -41,7 +41,7 @@
 | **Database** | Index, Query Optimization, Transaction, MVCC, Locking | `01-software-engineering/notes/` |
 | **DevOps** | Linux, Networking, Docker, CI/CD, AWS, Terraform, K8s | `02-devops-and-cloud/` |
 | **Troubleshooting** | Debugging, Post-mortem | `03-production-troubleshooting/` |
-| **AI** | AI-assisted development, Embeddings & RAG, Agent | `01-software-engineering/notes/ai/` |
+| **AI** | AI-assisted development, Embeddings & RAG, Agent | `01-software-engineering/ai-engineering/` |
 
 ---
 
@@ -366,7 +366,7 @@ Ví dụ, thay vì chỉ học Spring Boot, hãy hiểu sâu bản chất:
 
 | Giai đoạn | Nội dung | Deliverable |
 | :--- | :--- | :--- |
-| **Năm 1** | **AI-assisted development có kỷ luật:** prompt cho code review, sinh test, giải thích code lạ; nhận diện lỗi AI hay mắc (hallucinated API, race condition, thiếu edge case) | `notes/ai/ai-assisted-dev-playbook.md` |
+| **Năm 1** | **AI-assisted development có kỷ luật:** prompt cho code review, sinh test, giải thích code lạ; nhận diện lỗi AI hay mắc (hallucinated API, race condition, thiếu edge case) | `ai-engineering/01-ai-assisted-dev-playbook/` (AI-01) |
 | **Năm 1–2** | **Embeddings & RAG:** chunking, embedding model, vector search (pgvector), hybrid search (BM25 + vector), reranking, đánh giá chất lượng retrieval | Module semantic search / RAG trên tài liệu của chính repo này |
 | **Năm 2** | **LLM trong production:** latency, cost, caching, guardrails, prompt injection, observability cho LLM call | Thêm metric/trace cho RAG service |
 | **Năm 3** | **Agent:** tool calling, MCP, workflow vs agent, khi nào *không* nên dùng agent; agent cho DevOps (chatops, incident triage) | Tích hợp 1 agent nhỏ vào Project 3 |

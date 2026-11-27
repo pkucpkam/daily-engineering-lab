@@ -14,6 +14,18 @@ flowchart TD
 
 | Dự án | Lĩnh vực trọng tâm | Stack công nghệ | Mục tiêu năng lực chứng minh |
 | :--- | :--- | :--- | :--- |
-| **[01 — Distributed Backend System](file:///d:/pkucpkam/repo-git/daily-engineering-lab/04-projects/01-distributed-backend-system/README.md)** | SE & Distributed Systems | Java 21, Spring Boot, PostgreSQL, Redis, Kafka | Concurrency, Caching strategies, Outbox pattern, Saga distributed transactions, Idempotency |
-| **[02 — Infrastructure Automation](file:///d:/pkucpkam/repo-git/daily-engineering-lab/04-projects/02-infrastructure-automation/README.md)** | Cloud & Automation | AWS, Terraform, Docker, GitHub Actions | Modular IaC, multi-env state management, automated canary/blue-green deployment & auto-rollback |
-| **[03 — Internal Developer Platform](file:///d:/pkucpkam/repo-git/daily-engineering-lab/04-projects/03-internal-developer-platform/README.md)** | DevOps & Platform Eng | K8s, Helm, ArgoCD, Prometheus, Grafana | GitOps workflow, self-service developer platform, standardized microservice charts, RED monitoring |
+| **[01 — Distributed Backend System](./01-distributed-backend-system/README.md)** | SE & Distributed Systems | Java 21, Spring Boot, PostgreSQL, Redis, Kafka | Concurrency, Caching strategies, Outbox pattern, Saga distributed transactions, Idempotency |
+| **[02 — Infrastructure Automation](./02-infrastructure-automation/README.md)** | Cloud & Automation | AWS, Terraform, Docker, GitHub Actions | Modular IaC, multi-env state management, automated canary/blue-green deployment & auto-rollback |
+| **[03 — Internal Developer Platform](./03-internal-developer-platform/README.md)** | DevOps & Platform Eng | K8s, Helm, ArgoCD, Prometheus, Grafana | GitOps workflow, self-service developer platform, standardized microservice charts, RED monitoring |
+
+---
+
+## 🗂️ Cấu trúc mỗi project
+
+```
+0N-<project>/
+├── README.md        ← Tổng quan, kiến trúc, số đo, cách chạy
+├── MILESTONES.md    ← Task breakdown theo milestone, gắn ID bài học
+├── adr/             ← Architecture Decision Records (người học viết)
+└── <source code>
+```

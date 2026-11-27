@@ -1,0 +1,29 @@
+#!/bin/sh
+# Reference solution for Exercise E7:
+# Strict Conventional Commits hook requiring a "BREAKING CHANGE: ..." footer whenever "!" is used.
+MSG_FILE="$1"
+FIRST_LINE=$(head -n 1 "$MSG_FILE" | tr -d '\r')
+
+case "$FIRST_LINE" in
+  Merge\ *|Revert\ \"*)
+    exit 0
+    ;;
+esac
+
+PATTERN='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9._-]+\))?!?: .{1,72}$'
+
+if ! printf '%s\n' "$FIRST_LINE" | grep -Eq "$PATTERN"; then
+  echo "ERROR: Invalid Conventional Commit message: \"$FIRST_LINE\"" >&2
+  exit 1
+fi
+
+# Enforce BREAKING CHANGE footer when '!' is present in header
+if printf '%s\n' "$FIRST_LINE" | grep -Eq '^[a-z]+(\([a-z0-9._-]+\))?!:'; then
+  if ! grep -Eq '^BREAKING CHANGE: .+' "$MSG_FILE"; then
+    echo "ERROR: Header uses '!' for breaking change, so commit body/footer must include:" >&2
+    echo "  BREAKING CHANGE: <description of what broke and how to migrate>" >&2
+    exit 1
+  fi
+fi
+
+exit 0

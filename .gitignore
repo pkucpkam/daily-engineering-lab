@@ -1,0 +1,13 @@
+# Build artifacts (Maven / Java)
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE & OS metadata
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db

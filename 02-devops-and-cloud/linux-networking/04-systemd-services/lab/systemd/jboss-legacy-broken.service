@@ -1,0 +1,11 @@
+[Unit]
+Description=Broken JBoss Legacy Unit (Antipattern Demo)
+
+[Service]
+User=root
+ExecStart=/bin/sh -c "java -Xms2g -Xmx2g -jar /opt/jboss/jboss-modules.jar"
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+[Unit]
+Description=Order API Java 21 Service
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=appuser
+Group=appuser
+WorkingDirectory=/opt/order-api
+EnvironmentFile=-/etc/order-api/env
+ExecStart=/opt/jdk21/bin/java -XX:MaxRAMPercentage=70.0 -XX:+ExitOnOutOfMemoryError -jar /opt/order-api/app.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30
+LimitNOFILE=65536
+MemoryHigh=1600M
+MemoryMax=2G
+CPUQuota=200%
+
+[Install]
+WantedBy=multi-user.target

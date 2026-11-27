@@ -1,0 +1,7 @@
+2026-11-27 13:58:10,001 ERROR [org.jboss.as] (MSC service thread) Transient timeout before incident window
+2026-11-27 14:00:05,120 INFO  [com.app.OrderServlet] (http-executor-1) Order request started id=1001
+2026-11-27 14:01:12,450 WARN  [org.jboss.jca] (http-executor-3) Pool usage reached 85%
+2026-11-27 14:02:18,900 ERROR [com.app.PaymentDao] (http-executor-4) SQLTimeoutException on datasource OracleDS
+2026-11-27 14:03:44,012 ERROR [stderr] (http-executor-7) java.lang.OutOfMemoryError: Java heap space
+2026-11-27 14:04:55,330 ERROR [com.app.OrderServlet] (http-executor-9) Failed to commit JTA transaction
+2026-11-27 14:06:10,000 INFO  [org.jboss.as] (Controller Boot) JBoss restarted cleanly

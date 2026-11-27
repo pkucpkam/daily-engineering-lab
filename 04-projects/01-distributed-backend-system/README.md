@@ -24,3 +24,7 @@ Chứng minh năng lực thiết kế kiến trúc hệ thống phân tán, xử
 - [ ] **Saga Pattern (Orchestration-based)**: Xử lý distributed transaction cho chuỗi nghiệp vụ (Order → Inventory → Payment) có kèm bồi hoàn (Compensating Transactions).
 - [ ] **Distributed Concurrency Control**: So sánh và áp dụng Optimistic Locking (versioning) vs Pessimistic Locking vs Redisson Distributed Locks cho bài toán tranh chấp số dư / tồn kho.
 - [ ] **Idempotent API Keys**: Thiết kế cơ chế khóa key idempotency ở API Gateway/Service layer tránh duplicate charges/requests.
+
+---
+
+📋 Kế hoạch chi tiết: [MILESTONES.md](./MILESTONES.md) · 🧾 Quyết định kiến trúc: [adr/](./adr/README.md)

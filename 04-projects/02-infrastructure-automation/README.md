@@ -29,3 +29,7 @@ Tự động hóa hoàn toàn việc cấp phát hạ tầng đám mây dạng m
   - Blue/Green hoặc Rolling Update deployment.
   - Tích hợp synthetic smoke tests sau khi deploy vào staging/canary.
   - Tự động trigger rollback về phiên bản trước nếu health check hoặc error rate vượt ngưỡng cho phép trong 3 phút đầu.
+
+---
+
+📋 Kế hoạch chi tiết: [MILESTONES.md](./MILESTONES.md) · 🧾 Quyết định kiến trúc: [adr/](./adr/README.md)

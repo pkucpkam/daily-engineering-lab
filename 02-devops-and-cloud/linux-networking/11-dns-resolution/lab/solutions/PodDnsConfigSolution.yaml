@@ -1,0 +1,31 @@
+# Lời giải tham khảo E7 (LNX-11):
+# Cấu hình Pod Kubernetes giảm ndots mặc định từ 5 xuống 2 để loại bỏ 80% truy vấn NXDOMAIN dư thừa.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-gateway-client
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payment-gateway-client
+  template:
+    metadata:
+      labels:
+        app: payment-gateway-client
+    spec:
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "2"
+          - name: timeout
+            value: "2"
+          - name: attempts
+            value: "2"
+      containers:
+        - name: app
+          image: eclipse-temurin:21-jre
+          env:
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Djava.security.properties=/etc/jvm/dns-ttl.security"

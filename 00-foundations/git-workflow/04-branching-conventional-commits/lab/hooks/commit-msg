@@ -1,0 +1,26 @@
+#!/bin/sh
+# Conventional Commits hook (POSIX sh, zero Python/Node dependency)
+MSG_FILE="$1"
+FIRST_LINE=$(head -n 1 "$MSG_FILE" | tr -d '\r')
+
+# Allow Git-generated merge/revert commits
+case "$FIRST_LINE" in
+  Merge\ *|Revert\ \"*)
+    exit 0
+    ;;
+esac
+
+PATTERN='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9._-]+\))?!?: .{1,72}$'
+
+if ! printf '%s\n' "$FIRST_LINE" | grep -Eq "$PATTERN"; then
+  echo "ERROR: Invalid Conventional Commit message:" >&2
+  echo "  \"$FIRST_LINE\"" >&2
+  echo "" >&2
+  echo "Expected: <type>[optional (scope)][!]: <short summary (<=72 chars)>" >&2
+  echo "Allowed types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert" >&2
+  echo "Examples:" >&2
+  echo "  feat(order): add idempotency key validation" >&2
+  echo "  fix!: reject negative transfer amount" >&2
+  exit 1
+fi
+exit 0

@@ -26,3 +26,7 @@ Xây dựng một nền tảng vận hành chuẩn hóa (Platform Engineering) g
   - Centralized log aggregation với Grafana Loki.
   - Distributed tracing với OpenTelemetry.
 - [ ] **Alerting & Notification Rules**: Tự động kích hoạt cảnh báo qua Telegram / Slack khi tỷ lệ lỗi 5xx tăng cao hoặc Pod bị CrashLoopBackOff.
+
+---
+
+📋 Kế hoạch chi tiết: [MILESTONES.md](./MILESTONES.md) · 🧾 Quyết định kiến trúc: [adr/](./adr/README.md)
